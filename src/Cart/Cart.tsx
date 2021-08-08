@@ -7,7 +7,7 @@ const Cart: React.FC = () => {
     const totalPrice = useAppSelector(getTotalPrice);
     const dispatch = useAppDispatch();
 
-    const handleRemovingFromCart = (productId: string) => {
+    const handleRemovingFromCart = (productId: number) => {
         dispatch(removeFromCart(productId));
     };
 

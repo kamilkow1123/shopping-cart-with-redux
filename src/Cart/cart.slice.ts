@@ -21,7 +21,7 @@ const cartSlice = createSlice({
                 state.push({ ...action.payload, amount: 1 });
             }
         },
-        removeFromCart: (state, action: PayloadAction<string>) => {
+        removeFromCart: (state, action: PayloadAction<number>) => {
             const productIndex = state.findIndex(
                 product => product.id === action.payload
             );

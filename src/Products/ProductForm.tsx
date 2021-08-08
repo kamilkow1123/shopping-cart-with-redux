@@ -5,10 +5,9 @@ import { addProduct, IProduct } from "./products.slice";
 const ProductForm: React.FC = () => {
     const dispatch = useAppDispatch();
 
-    const [ product, setProduct ] = useState<IProduct>({
+    const [ product, setProduct ] = useState<{ title: string; price: number }>({
         title: "",
         price: 0,
-        id: "",
     });
 
     const handleChange = ({
@@ -23,17 +22,16 @@ const ProductForm: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (id === "" || title === "" || price === 0) return;
+        if (title === "" || price === 0) return;
 
         dispatch(addProduct(product));
         setProduct({
             title: "",
             price: 0,
-            id: "",
         });
     };
 
-    const { id, title, price } = product;
+    const { title, price } = product;
     return (
         <div>
             <h2>Add Game To The Store</h2>
@@ -50,13 +48,6 @@ const ProductForm: React.FC = () => {
                     placeholder="Price"
                     name="price"
                     value={price}
-                    onChange={handleChange}
-                />
-                <input
-                    type="text"
-                    placeholder="Id"
-                    name="id"
-                    value={id}
                     onChange={handleChange}
                 />
                 <button type="submit">Add Game</button>

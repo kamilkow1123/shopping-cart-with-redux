@@ -4,7 +4,7 @@ import { AppDispatch, RootState } from "../state/store";
 export interface IProduct {
     title: string;
     price: number;
-    id: string;
+    id: number;
 }
 
 const initialState = {
@@ -21,7 +21,7 @@ const productsSlice = createSlice({
         addNewProduct: (state, action: PayloadAction<IProduct>) => {
             state.listOfProducts.push(action.payload);
         },
-        removeProduct: (state, action: PayloadAction<string>) => {
+        deleteProduct: (state, action: PayloadAction<number>) => {
             return {
                 ...state,
                 listOfProducts: state.listOfProducts.filter(
@@ -37,11 +37,11 @@ export const getProductsSelector = (state: RootState) =>
 
 export const {
     addNewProduct,
-    removeProduct,
+    deleteProduct,
     setProducts,
 } = productsSlice.actions;
 
-export const addProduct = (product: IProduct) => async (
+export const addProduct = (product: { title: string; price: number }) => async (
     dispatch: AppDispatch
 ) => {
     try {
@@ -60,7 +60,6 @@ export const addProduct = (product: IProduct) => async (
 };
 
 export const fetchProducts = () => async (dispatch: AppDispatch) => {
-    console.log("here");
     try {
         const res = await fetch("http://localhost:5000/products");
 
@@ -69,6 +68,18 @@ export const fetchProducts = () => async (dispatch: AppDispatch) => {
         console.log(res);
         console.log(data);
         dispatch(setProducts(data));
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+export const removeProduct = (id: number) => async (dispatch: AppDispatch) => {
+    try {
+        await fetch(`http://localhost:5000/products/${id}`, {
+            method: "DELETE",
+        });
+
+        dispatch(deleteProduct(id));
     } catch (err) {
         console.log(err);
     }

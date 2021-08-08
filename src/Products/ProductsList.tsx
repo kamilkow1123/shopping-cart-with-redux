@@ -14,11 +14,10 @@ const ProductsList: React.FC = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log("fetching");
         dispatch(fetchProducts());
     }, []);
 
-    const removeFromStore = (id: string) => {
+    const removeFromStore = (id: number) => {
         dispatch(removeProduct(id));
     };
 
