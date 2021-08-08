@@ -1,14 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAppDispatch } from "../state/store.hooks";
+import { addProduct, IProduct } from "./products.slice";
 
-const ProductForm = () => {
+const ProductForm: React.FC = () => {
+    const dispatch = useAppDispatch();
+
+    const [ product, setProduct ] = useState<IProduct>({
+        id: "",
+        title: "",
+        price: 0,
+    });
+
+    const handleChange = ({
+        target: { name, value },
+    }: React.ChangeEvent<HTMLInputElement>) => {
+        setProduct(prev => {
+            (prev as any)[name] = value;
+            return { ...prev };
+        });
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+
+        dispatch(addProduct(product));
+        setProduct({
+            id: "",
+            title: "",
+            price: 0,
+        });
+    };
+
+    const { id, title, price } = product;
     return (
         <div>
             <h2>Add Game To The Store</h2>
-            <form>
-                <input type="text" placeholder="Title" name="title" />
-                <input type="number" placeholder="Price" name="price" />
-                <input type="text" placeholder="Id" name="id" />
-                <button>Add Game</button>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="Title"
+                    name="title"
+                    value={title}
+                    onChange={handleChange}
+                />
+                <input
+                    type="number"
+                    placeholder="Price"
+                    name="price"
+                    value={price}
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    placeholder="Id"
+                    name="id"
+                    value={id}
+                    onChange={handleChange}
+                />
+                <button type="submit">Add Game</button>
             </form>
         </div>
     );
