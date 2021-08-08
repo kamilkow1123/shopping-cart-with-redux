@@ -6,9 +6,9 @@ const ProductForm: React.FC = () => {
     const dispatch = useAppDispatch();
 
     const [ product, setProduct ] = useState<IProduct>({
-        id: "",
         title: "",
         price: 0,
+        id: "",
     });
 
     const handleChange = ({
@@ -23,11 +23,13 @@ const ProductForm: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
+        if (id === "" || title === "" || price === 0) return;
+
         dispatch(addProduct(product));
         setProduct({
-            id: "",
             title: "",
             price: 0,
+            id: "",
         });
     };
 

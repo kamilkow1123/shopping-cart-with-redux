@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "title": "Escape From Tarkov",
+      "price": 60,
+      "id": "eft"
+    },
+    {
+      "title": "Hunt: Showdown",
+      "price": 70,
+      "id": "hunt"
+    },
+    {
+      "title": "Hell Let Loose",
+      "price": 55,
+      "id": "hll"
+    },
+    {
+      "id": "sdf",
+      "title": "CyberPunk",
+      "price": "123"
+    }
+  ]
+}
