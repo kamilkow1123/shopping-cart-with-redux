@@ -1,3 +1,4 @@
+import Cart from "./Cart/Cart";
 import ProductForm from "./Products/ProductForm";
 import ProductsList from "./Products/ProductsList";
 
@@ -6,6 +7,7 @@ function App() {
         <div>
             <ProductsList />
             <ProductForm />
+            <Cart />
         </div>
     );
 }
