@@ -9,14 +9,14 @@ import {
     removeProduct,
 } from "./products.slice";
 
-const ProductsList: React.FC = ({}) => {
+const ProductsList: React.FC = () => {
     const products = useSelector(getProductsSelector);
     const dispatch = useDispatch();
 
     useEffect(() => {
         console.log("fetching");
-        fetchProducts();
-    });
+        dispatch(fetchProducts());
+    }, []);
 
     const removeFromStore = (id: string) => {
         dispatch(removeProduct(id));
