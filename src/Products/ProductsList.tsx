@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 //types
-import { getProductsSelector, IProduct } from "./products.slice";
+import { getProductsSelector, removeProduct } from "./products.slice";
 
-interface ProductsListProps {}
-
-const ProductsList: React.FC<ProductsListProps> = ({}) => {
+const ProductsList: React.FC = ({}) => {
     const products = useSelector(getProductsSelector);
+    const dispatch = useDispatch();
+
+    const removeFromStore = (id: string) => {
+        dispatch(removeProduct(id));
+    };
 
     return (
         <div>
@@ -14,6 +17,9 @@ const ProductsList: React.FC<ProductsListProps> = ({}) => {
             {products.map(product => (
                 <div key={product.id}>
                     <span>{`${product.title}: ${product.price}`}</span>
+                    <button onClick={() => removeFromStore(product.id)}>
+                        Remove from the store
+                    </button>
                 </div>
             ))}
         </div>
