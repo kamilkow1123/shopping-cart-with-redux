@@ -13,28 +13,39 @@ const Cart: React.FC = () => {
     const totalPrice = useAppSelector(getTotalPrice);
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        console.log("fetching");
-        dispatch(fetchCartProducts());
-    }, []);
+    useEffect(
+        () => {
+            dispatch(fetchCartProducts());
+        },
+        [ dispatch ]
+    );
 
     const handleRemovingFromCart = (product: CartProduct) => {
         dispatch(removeFromCart(product));
     };
 
     return (
-        <div>
-            <h2>Cart</h2>
-            <h3>{totalPrice}</h3>
-            {cartProducts.map(product => (
-                <div key={product.id}>
-                    <span>{product.title}</span>
-                    <span>{product.amount}</span>
-                    <button onClick={() => handleRemovingFromCart(product)}>
-                        Remove From Cart
-                    </button>
-                </div>
-            ))}
+        <div className="cart">
+            <h2 className="cart__header">Cart</h2>
+            <h3 className="cart__price">{`Total: $${totalPrice}`}</h3>
+            <div className="cart__wrapper">
+                {cartProducts.map(product => (
+                    <div key={product.id} className="cart__item">
+                        <div className="cart__infos">
+                            <span className="cart__title">{product.title}</span>
+                            <span className="cart__info">
+                                Amount: {product.amount}
+                            </span>
+                        </div>
+                        <button
+                            className="cart__button"
+                            onClick={() => handleRemovingFromCart(product)}
+                        >
+                            Remove
+                        </button>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

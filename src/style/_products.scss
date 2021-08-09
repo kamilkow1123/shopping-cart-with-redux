@@ -1,0 +1,133 @@
+@import 'colors';
+
+.products {
+    margin: 2rem 0;
+    width: 100%;
+
+    &__header {
+        font-size: 5rem;
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: $clr-accent;
+    }
+
+    &__items {
+        background-color: $clr-light;
+        padding: 3rem 2rem;
+        border-radius: 20px;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1.5rem 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+
+        @media screen and (min-width: 576px) {
+            flex-direction: row;
+        }
+    }
+
+    &__info {
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+        width: 100%;
+        @media screen and (min-width: 576px) {
+            width: max-content;
+        }
+    }
+
+    &__button-add {
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+        padding: 1rem;
+        width: 100%;
+        background-color: $clr-primary-light;
+        font-size: 1.3rem;
+        border-radius: 15px;
+    }
+
+    &__button-remove {
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+        padding: 1rem;
+        width: 100%;
+        background-color: $clr-secondary;
+        font-size: 1.3rem;
+        border-radius: 15px;
+    }
+}
+
+.form {
+    background-color: $clr-accent;
+    padding: 2rem 1rem;
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__header {
+        font-size: 2rem;
+        color: $clr-secondary;
+        text-align: center;
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: 1rem;
+        margin: 1rem 0;
+        flex-direction: column;
+        gap: 1rem;
+
+        @media screen and (min-width: 576px) {
+            flex-direction: row;
+        }
+    }
+
+    &__input {
+        border: none;
+        outline: none;
+        padding: 0.7rem;
+        background: $clr-secondary;
+        border-radius: 20px;
+        text-align: start;
+        font-size: 1.3rem;
+        color: $clr-light;
+
+        &::placeholder {
+            color: $clr-light;
+            opacity: 1;
+        }
+    }
+
+    &__button {
+        border: none;
+        outline: none;
+        background: $clr-primary-light;
+        padding: 0.7rem;
+        border-radius: 20px;
+        width: 100%;
+        font-size: 1.3rem;
+        color: $clr-light;
+        cursor: pointer;
+    }
+}

@@ -4,10 +4,12 @@ import ProductsList from "./Products/ProductsList";
 
 function App() {
     return (
-        <div>
-            <ProductsList />
-            <ProductForm />
-            <Cart />
+        <div className="container">
+            <div className="app">
+                <ProductsList />
+                <ProductForm />
+                <Cart />
+            </div>
         </div>
     );
 }

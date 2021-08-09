@@ -1,11 +1,6 @@
 {
   "products": [
     {
-      "title": "Escape From Tarkov",
-      "price": 60,
-      "id": 1
-    },
-    {
       "title": "Hunt: Showdown",
       "price": 70,
       "id": 2
@@ -14,26 +9,25 @@
       "title": "Hell Let Loose",
       "price": 55,
       "id": 3
+    },
+    {
+      "title": "CyberPunk",
+      "price": "60",
+      "id": 4
     }
   ],
   "cart": [
     {
-      "title": "Escape From Tarkov",
-      "price": 60,
-      "id": 1,
-      "amount": 3
+      "title": "Hell Let Loose",
+      "price": 55,
+      "id": 3,
+      "amount": 2
     },
     {
       "title": "Hunt: Showdown",
       "price": 70,
       "id": 2,
-      "amount": 1
-    },
-    {
-      "title": "Hell Let Loose",
-      "price": 55,
-      "id": 3,
-      "amount": 3
+      "amount": 2
     }
   ]
 }

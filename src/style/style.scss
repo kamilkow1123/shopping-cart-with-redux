@@ -1,0 +1,29 @@
+@import 'products';
+@import 'cart';
+@import 'fonts';
+@import 'colors';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: $primary-font;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: $clr-primary-dark;
+    padding-bottom: 6rem;
+}
+
+.app {
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+}

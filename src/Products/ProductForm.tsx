@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "../state/store.hooks";
-import { addProduct, IProduct } from "./products.slice";
+import { addProduct } from "./products.slice";
 
 const ProductForm: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -33,24 +33,30 @@ const ProductForm: React.FC = () => {
 
     const { title, price } = product;
     return (
-        <div>
-            <h2>Add Game To The Store</h2>
+        <div className="form">
+            <h2 className="form__header">Add Game To The Store</h2>
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Title"
-                    name="title"
-                    value={title}
-                    onChange={handleChange}
-                />
-                <input
-                    type="number"
-                    placeholder="Price"
-                    name="price"
-                    value={price}
-                    onChange={handleChange}
-                />
-                <button type="submit">Add Game</button>
+                <div className="form__wrapper">
+                    <input
+                        type="text"
+                        placeholder="Title"
+                        name="title"
+                        value={title}
+                        onChange={handleChange}
+                        className="form__input"
+                    />
+                    <input
+                        type="number"
+                        placeholder="Price"
+                        name="price"
+                        value={price}
+                        onChange={handleChange}
+                        className="form__input"
+                    />
+                </div>
+                <button type="submit" className="form__button">
+                    Add Game
+                </button>
             </form>
         </div>
     );
