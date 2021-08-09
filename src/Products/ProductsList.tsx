@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, getCartProducts } from "../Cart/cart.slice";
 import { useAppSelector } from "../state/store.hooks";
-import { FaShoppingBasket } from "react-icons/fa";
+import { FaShoppingBasket, FaSpinner } from "react-icons/fa";
 //types
 import {
     fetchProducts,
+    getLoading,
     getProductsSelector,
     IProduct,
     removeProduct,
@@ -13,6 +14,7 @@ import {
 
 const ProductsList: React.FC = () => {
     const products = useSelector(getProductsSelector);
+    const loading = useSelector(getLoading);
     const cartProducts = useAppSelector(getCartProducts);
     const dispatch = useDispatch();
 
@@ -35,6 +37,7 @@ const ProductsList: React.FC = () => {
         <div className="products">
             <h2 className="products__header">Games Store</h2>
             <div className="products__items">
+                {loading && <FaSpinner className="products__spinner" />}
                 {!products ? null : (
                     products.map(product => (
                         <div key={product.id} className="products__item">

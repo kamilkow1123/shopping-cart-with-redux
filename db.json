@@ -28,6 +28,12 @@
       "price": 70,
       "id": 2,
       "amount": 2
+    },
+    {
+      "title": "CyberPunk",
+      "price": "60",
+      "id": 4,
+      "amount": 3
     }
   ]
 }

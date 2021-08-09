@@ -75,4 +75,22 @@
             width: max-content;
         }
     }
+
+    &__spinner {
+        animation: spin infinite 2s linear;
+        height: 30px;
+        width: 30px;
+        color: $clr-primary-light;
+        margin-top: 1rem;
+        margin-left: calc(50% - 15px);
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
 }

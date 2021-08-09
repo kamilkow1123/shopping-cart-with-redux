@@ -9,6 +9,7 @@ export interface IProduct {
 
 const initialState = {
     listOfProducts: [] as IProduct[],
+    isLoading: false as boolean,
 };
 
 const productsSlice = createSlice({
@@ -29,16 +30,22 @@ const productsSlice = createSlice({
                 ),
             };
         },
+        setLoading: (state, action: PayloadAction<boolean>) => {
+            state.isLoading = action.payload;
+        },
     },
 });
 
 export const getProductsSelector = (state: RootState) =>
     state.products.listOfProducts;
 
+export const getLoading = (state: RootState) => state.products.isLoading;
+
 export const {
     addNewProduct,
     deleteProduct,
     setProducts,
+    setLoading,
 } = productsSlice.actions;
 
 //Async action creators
@@ -62,6 +69,7 @@ export const addProduct = (product: { title: string; price: number }) => async (
 };
 
 export const fetchProducts = () => async (dispatch: AppDispatch) => {
+    dispatch(setLoading(true));
     try {
         const res = await fetch("http://localhost:5000/products");
         const data = await res.json();
@@ -69,6 +77,8 @@ export const fetchProducts = () => async (dispatch: AppDispatch) => {
         dispatch(setProducts(data));
     } catch (err) {
         console.log(err);
+    } finally {
+        dispatch(setLoading(false));
     }
 };
 

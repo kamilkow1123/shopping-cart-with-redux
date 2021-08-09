@@ -8,6 +8,7 @@ export interface CartProduct extends IProduct {
 
 const initialState = {
     cartProducts: [] as CartProduct[],
+    isLoading: false as boolean,
 };
 
 const cartSlice = createSlice({
@@ -44,10 +45,15 @@ const cartSlice = createSlice({
                 };
             }
         },
+        setLoading: (state, action: PayloadAction<boolean>) => {
+            state.isLoading = action.payload;
+        },
     },
 });
 
 export const getCartProducts = (state: RootState) => state.cart.cartProducts;
+
+export const getLoading = (state: RootState) => state.cart.isLoading;
 
 export const getTotalPrice = (state: RootState) =>
     state.cart.cartProducts.reduce(
@@ -59,6 +65,7 @@ export const {
     setCartProducts,
     addProductToCart,
     deleteFromCart,
+    setLoading,
 } = cartSlice.actions;
 
 //Async action creators
@@ -95,6 +102,7 @@ export const addToCart = (product: IProduct, products: CartProduct[]) => async (
 };
 
 export const fetchCartProducts = () => async (dispatch: AppDispatch) => {
+    dispatch(setLoading(true));
     try {
         const res = await fetch("http://localhost:5000/cart");
         const data = await res.json();
@@ -102,6 +110,8 @@ export const fetchCartProducts = () => async (dispatch: AppDispatch) => {
         dispatch(setCartProducts(data));
     } catch (err) {
         console.log(err);
+    } finally {
+        dispatch(setLoading(false));
     }
 };
 
