@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../Cart/cart.slice";
+import { addToCart, getCartProducts } from "../Cart/cart.slice";
+import { useAppSelector } from "../state/store.hooks";
 //types
 import {
     fetchProducts,
@@ -11,6 +12,7 @@ import {
 
 const ProductsList: React.FC = () => {
     const products = useSelector(getProductsSelector);
+    const cartProducts = useAppSelector(getCartProducts);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -22,7 +24,7 @@ const ProductsList: React.FC = () => {
     };
 
     const addToCartHandler = (product: IProduct) => {
-        dispatch(addToCart(product));
+        dispatch(addToCart(product, cartProducts));
     };
 
     return (

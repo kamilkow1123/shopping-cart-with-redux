@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../state/store.hooks";
-import { getCartProducts, getTotalPrice, removeFromCart } from "./cart.slice";
+import {
+    fetchCartProducts,
+    getCartProducts,
+    getTotalPrice,
+    removeFromCart,
+    CartProduct,
+} from "./cart.slice";
 
 const Cart: React.FC = () => {
     const cartProducts = useAppSelector(getCartProducts);
     const totalPrice = useAppSelector(getTotalPrice);
     const dispatch = useAppDispatch();
 
-    const handleRemovingFromCart = (productId: number) => {
-        dispatch(removeFromCart(productId));
+    useEffect(() => {
+        console.log("fetching");
+        dispatch(fetchCartProducts());
+    }, []);
+
+    const handleRemovingFromCart = (product: CartProduct) => {
+        dispatch(removeFromCart(product));
     };
 
     return (
@@ -19,7 +30,7 @@ const Cart: React.FC = () => {
                 <div key={product.id}>
                     <span>{product.title}</span>
                     <span>{product.amount}</span>
-                    <button onClick={() => handleRemovingFromCart(product.id)}>
+                    <button onClick={() => handleRemovingFromCart(product)}>
                         Remove From Cart
                     </button>
                 </div>

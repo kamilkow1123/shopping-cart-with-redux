@@ -41,6 +41,8 @@ export const {
     setProducts,
 } = productsSlice.actions;
 
+//Async action creators
+
 export const addProduct = (product: { title: string; price: number }) => async (
     dispatch: AppDispatch
 ) => {
@@ -62,11 +64,8 @@ export const addProduct = (product: { title: string; price: number }) => async (
 export const fetchProducts = () => async (dispatch: AppDispatch) => {
     try {
         const res = await fetch("http://localhost:5000/products");
-
         const data = await res.json();
 
-        console.log(res);
-        console.log(data);
         dispatch(setProducts(data));
     } catch (err) {
         console.log(err);

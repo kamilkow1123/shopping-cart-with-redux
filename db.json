@@ -15,5 +15,25 @@
       "price": 55,
       "id": 3
     }
+  ],
+  "cart": [
+    {
+      "title": "Escape From Tarkov",
+      "price": 60,
+      "id": 1,
+      "amount": 3
+    },
+    {
+      "title": "Hunt: Showdown",
+      "price": 70,
+      "id": 2,
+      "amount": 1
+    },
+    {
+      "title": "Hell Let Loose",
+      "price": 55,
+      "id": 3,
+      "amount": 3
+    }
   ]
 }
