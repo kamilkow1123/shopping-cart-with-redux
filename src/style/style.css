@@ -196,7 +196,7 @@
 .form__input {
   border: none;
   outline: none;
-  padding: 0.7rem;
+  padding: 0.7rem 1.2rem;
   background: #ff6b6b;
   border-radius: 20px;
   text-align: start;
@@ -206,21 +206,27 @@
 
 .form__input::-webkit-input-placeholder {
   color: #f7fff7;
+  -webkit-filter: opacity(0.5);
+          filter: opacity(0.5);
   opacity: 1;
 }
 
 .form__input:-ms-input-placeholder {
   color: #f7fff7;
+  filter: opacity(0.5);
   opacity: 1;
 }
 
 .form__input::-ms-input-placeholder {
   color: #f7fff7;
+  filter: opacity(0.5);
   opacity: 1;
 }
 
 .form__input::placeholder {
   color: #f7fff7;
+  -webkit-filter: opacity(0.5);
+          filter: opacity(0.5);
   opacity: 1;
 }
 

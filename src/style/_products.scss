@@ -135,7 +135,7 @@
     &__input {
         border: none;
         outline: none;
-        padding: 0.7rem;
+        padding: 0.7rem 1.2rem;
         background: $clr-secondary;
         border-radius: 20px;
         text-align: start;
@@ -144,6 +144,7 @@
 
         &::placeholder {
             color: $clr-light;
+            filter: opacity(0.5);
             opacity: 1;
         }
     }

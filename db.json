@@ -18,22 +18,22 @@
   ],
   "cart": [
     {
-      "title": "Hell Let Loose",
-      "price": 55,
-      "id": 3,
-      "amount": 2
-    },
-    {
       "title": "Hunt: Showdown",
       "price": 70,
       "id": 2,
-      "amount": 2
+      "amount": 1
     },
     {
       "title": "CyberPunk",
       "price": "60",
       "id": 4,
       "amount": 3
+    },
+    {
+      "title": "Hell Let Loose",
+      "price": 55,
+      "id": 3,
+      "amount": 1
     }
   ]
 }
