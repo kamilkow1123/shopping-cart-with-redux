@@ -85,6 +85,13 @@
   background-color: #4ecdc4;
   font-size: 1.3rem;
   border-radius: 15px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.products__button-add:hover {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
 }
 
 .products__button-remove {
@@ -97,6 +104,13 @@
   background-color: #ff6b6b;
   font-size: 1.3rem;
   border-radius: 15px;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.products__button-remove:hover {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
 }
 
 .form {
@@ -185,6 +199,13 @@
   font-size: 1.3rem;
   color: #f7fff7;
   cursor: pointer;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.form__button:hover {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
 }
 
 .cart {
@@ -284,6 +305,13 @@
   font-size: 1.2rem;
   cursor: pointer;
   width: 100%;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.cart__button:hover {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
 }
 
 @media screen and (min-width: 576px) {
