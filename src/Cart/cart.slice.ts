@@ -96,8 +96,10 @@ export const addToCart = (product: IProduct, products: CartProduct[]) => async (
         const data = await res.json();
 
         dispatch(addProductToCart(data));
+        setTimeout(() => alert("Successfully added item to Cart!"), 1);
     } catch (err) {
         console.log(err);
+        setTimeout(() => alert("Could not add to Cart. Try again"), 1);
     }
 };
 
@@ -135,8 +137,13 @@ export const removeFromCart = (product: CartProduct) => async (
         }
 
         dispatch(deleteFromCart(product.id));
+        setTimeout(() => alert("Successfully removed item from Cart!"), 1);
     } catch (err) {
         console.log(err);
+        setTimeout(
+            () => alert("Could not remove item from Cart. Try again"),
+            1
+        );
     }
 };
 

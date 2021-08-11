@@ -63,8 +63,10 @@ export const addProduct = (product: { title: string; price: number }) => async (
         const data = await res.json();
 
         dispatch(addNewProduct(data));
+        setTimeout(() => alert("Successfully added item!"), 1);
     } catch (err) {
         console.log(err);
+        setTimeout(() => alert("Could not add item. Try again"), 1);
     }
 };
 
@@ -89,8 +91,10 @@ export const removeProduct = (id: number) => async (dispatch: AppDispatch) => {
         });
 
         dispatch(deleteProduct(id));
+        setTimeout(() => alert("Successfully removed item!"), 1);
     } catch (err) {
         console.log(err);
+        setTimeout(() => alert("Could not remove item. Try again"), 1);
     }
 };
 
